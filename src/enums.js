@@ -7,6 +7,8 @@ export const CANDLE_COLOR = {
 export const CRON_TIME = {
   DEZ_SEGUNDOS: "*/10 * * * * *",
   TRINTA_SEGUNDOS: "*/30 * * * * *",
+  SEGUNDO_TRINTA: "30 * * * * *",
+  SEGUNDO_CINQUENTA: "50 * * * * *",
   UM_MINUTO: "* * * * *",
   CINCO_MINUTOS: "*/5 * * * *",
   DEZ_MINUTOS: "*/10 * * * *",
@@ -14,5 +16,6 @@ export const CRON_TIME = {
 };
 
 export const CURRENCY = {
-  BTC_TO_USD: "BTC/USD"
+  USD: "USD",
+  BRL: "BRL"
 }
