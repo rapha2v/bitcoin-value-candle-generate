@@ -15,7 +15,7 @@ class RabbitMQ {
       console.log("Conexão com o RabbitMQ estabelecida.");
       return new RabbitMQ(connection)
     } catch (e) {
-      console.log(err);
+      console.log(e);
       throw new Error("Erro ao tentar se conectar com o RabbitMQ.")
     }
   }
