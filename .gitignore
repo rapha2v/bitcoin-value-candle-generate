@@ -10,3 +10,5 @@ node_modules/
 .vscode/
 *.code-workspace
 
+# Rabbitmq
+conf-rabbit/
