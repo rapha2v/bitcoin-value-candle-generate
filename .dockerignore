@@ -1,0 +1,7 @@
+node_module/
+.idea/
+.vscode/
+*.code-workspace
+conf-rabbit/
+.git/
+package-lock.json

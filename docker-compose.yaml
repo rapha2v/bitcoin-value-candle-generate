@@ -1,0 +1,33 @@
+version: "3.x"
+
+services:
+  api:
+    container_name: gerenarete-candle.node-20.12
+    build: .
+    restart: always
+    networks:
+      - producer_networking
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  rabbitmq:
+    hostname: rabbitmq
+    image: rabbitmq:3.13-management
+    ports:
+      - ${RABBITMQ_PORT}:5672
+      - ${RABBITMQ_MANAGEMENT_PORT}:15672
+    volumes:
+      - ./conf-rabbit/data:/var/lib/rabbitmq
+      - ./conf-rabbit/rabbitmq.conf:/etc/rabbitmq/rabbitmq.config
+    networks:
+        - producer_networking
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+networks:
+  producer_networking:
+    driver: bridge
