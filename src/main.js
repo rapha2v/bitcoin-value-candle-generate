@@ -37,8 +37,6 @@ const jobRowUpCandles = schedule.scheduleJob(CRON_TIME.SEGUNDO_CINQUENTA, async 
     )
     rbtmq.close_connection();
     lastValues[i] = newValue || 0;
-    console.log("Enfileirado com sucesso.")
-    console.log("-------------------------")
     console.log("\n")
   }
 })

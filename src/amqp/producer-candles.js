@@ -15,8 +15,13 @@ export const producer_candles = async (currency, value, lastValue, channel) => {
     console.log(simpCandle)
     const candleJSON = JSON.stringify(simpCandle)
     await channel.sendToQueue(process.env.QUEUE_NAME, Buffer.from(candleJSON))
+    console.log("Enfileirado com sucesso.")
+    console.log("-------------------------")
+
     return value;
   }
+  console.log("Não possui valor.")
+  console.log("-------------------------")
   return null;
 }
 
