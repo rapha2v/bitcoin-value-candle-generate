@@ -5,7 +5,7 @@ export default class Candle {
     this.lastValue = lastValue;
     this.value = value;
     this.color = CANDLE_COLOR.GRAY;
-    this.dateTime = (new Date()).toISOString();
+    this.created_at = (new Date()).toISOString();
     this.currency = currency;
   }
 
