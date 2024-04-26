@@ -8,7 +8,7 @@ export const producer_candles = async (currency, value, lastValue, channel) => {
   if (value) {
     const candle = new Candle(
       currency,
-      value[currency].last,
+      value,
       lastValue
     );
     const simpCandle = candle.generate_candle();
@@ -17,7 +17,6 @@ export const producer_candles = async (currency, value, lastValue, channel) => {
     await channel.sendToQueue(process.env.QUEUE_NAME, Buffer.from(candleJSON))
     console.log("Enfileirado com sucesso.")
     console.log("-------------------------")
-
     return value;
   }
   console.log("Não possui valor.")
