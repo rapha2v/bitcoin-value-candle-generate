@@ -27,11 +27,12 @@ const jobRowUpCandles = schedule.scheduleJob(CRON_TIME.SEGUNDO_CINQUENTA, async 
   for (const [i, v] of Object.values(CURRENCY).entries()) {
     console.log(`----------/${v}/----------`)
     console.log(`Enfileirando BTC/${v}.`)
+    console.log("velho: " + lastValues[i], "novo: " + valuesBTC[v].last)
     const rbtmq = await RabbitMQ.init();
     const channel = await rbtmq.create_channel();
     const newValue = await producer_candles(
       v,
-      valuesBTC,
+      valuesBTC[v].last,
       lastValues[i],
       channel
     )
